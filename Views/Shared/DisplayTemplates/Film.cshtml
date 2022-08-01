@@ -1,0 +1,29 @@
+﻿@model Uzunova_Nadica_1002387434_DSR_2021.Models.Film
+
+<div class="card border-info mb-3" style="max-width: 20rem;">
+    <div class="card-header">
+        <p>@Model.Naslov (@Model.DatumIzida.Year)</p>
+        <div style="float:right">
+            @{
+                if (User.IsInRole("Zaposleni"))
+                {
+                    <a class="btn btn-outline-warning" style="margin-right:5px" asp-action="Uredi" asp-route-id="@Model.Id">✏</a>
+                    <a class="btn btn-outline-danger" asp-action="Odstrani" asp-route-id="@Model.Id">✖</a>
+                }
+            }
+
+        </div>
+
+    </div>
+    <div class="card-body">
+                <p class="card-text">ID: <span class="text-info">@Html.ValueFor(x => x.Id)</span></p>
+
+            <p class="card-text">Naslov: <span class="text-info">@Html.ValueFor(x => x.Naslov)</span></p>
+            <p class="card-text">Trajanje: <span class="text-info">@Html.ValueFor(x => x.Trajanje)</span></p>
+
+                <p class="card-text">Datum izida: <span class="text-info">@Model.DatumIzida.ToShortDateString()</span></p>
+                <p class="card-text">Jezik: <span class="text-info">@Model.Jezik</span></p>
+
+            <p class="card-text">Ocena: <span class="text-info">@Html.ValueFor(x => x.Ocena)</span></p>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+﻿@model Uzunova_Nadica_1002387434_DSR_2021.Models.Dvorana
+
+
+@{
+    ViewData["Title"] = "Dodajanje dvorane";
+}
+
+<div class="card border-secondary mb-3" style="max-width: 30rem;">
+    <div class="card-header">@ViewData["Title"]</div>
+    <div class="card-body">
+        @using (Html.BeginForm("Dodaj", "Dvorana", FormMethod.Post))
+        {
+            @Html.EditorForModel()
+            <input type="submit" value="Dodaj" class="btn btn-outline-primary" />
+        }
+    </div>
+</div>

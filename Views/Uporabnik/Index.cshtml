@@ -1,0 +1,70 @@
+﻿@model List<UporabnikZGeslom>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a>Ime</a>
+            </th>
+            <th>
+                <a>Priimek</a>
+            </th>
+            <th>
+                <a>Datum rojstva</a>
+            </th>
+            <th>
+                <a>Naslov</a>
+            </th>
+            <th>
+                <a>Pošta</a>
+            </th>
+            <th>
+                <a>Poštna številka</a>
+            </th>
+            <th>
+                <a>Država</a>
+            </th>
+            <th>
+                <a>Email</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (UporabnikZGeslom n in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => n.Ime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => n.Priimek)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => n.DatumRojstva)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => n.Naslov)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => n.Posta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => n.PostnaStevilka)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => n.Drzava)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => n.Email)
+                </td>
+                <td>
+                            <a asp-action="Uredi" asp-route-id="@n.Id">Uredi</a>
+                            <a asp-action="Odstrani" asp-route-id="@n.Id">Odstrani</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

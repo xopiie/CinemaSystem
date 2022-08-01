@@ -1,0 +1,77 @@
+﻿@model UporabnikZGeslom
+
+<br />
+@using (Html.BeginForm("Uredi", "Uporabnik", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.Ime)
+    <br />
+    @Html.EditorFor(x => x.Ime, new { htmlAttributes = new { @autocomplete = "off" } })
+    @Html.ValidationMessageFor(x => x.Ime, null, new { @class = "text-danger" })
+    <br />
+    <br />
+
+    @Html.LabelFor(x => x.Priimek)
+    <br />
+    @Html.EditorFor(x => x.Priimek, new { htmlAttributes = new { @autocomplete = "off" } })
+    @Html.ValidationMessageFor(x => x.Priimek, null, new { @class = "text-danger" })
+    <br />
+    <br />
+
+    @Html.LabelFor(x => x.DatumRojstva)
+    <br />
+    @Html.EditorFor(x => x.DatumRojstva, new { htmlAttributes = new { @autocomplete = "off" } })
+    @Html.ValidationMessageFor(x => x.DatumRojstva, null, new { @class = "text-danger" })
+    <br />
+    <br />
+
+    @Html.LabelFor(x => x.Naslov)
+    <br />
+    @Html.EditorFor(x => x.Naslov, new { htmlAttributes = new { @autocomplete = "off" } })
+    @Html.ValidationMessageFor(x => x.Naslov, null, new { @class = "text-danger" })
+    <br />
+    <br />
+
+    @Html.LabelFor(x => x.Posta)
+    <br />
+    @Html.EditorFor(x => x.Posta, new { htmlAttributes = new { @autocomplete = "off" } })
+    @Html.ValidationMessageFor(x => x.Posta, null, new { @class = "text-danger" })
+    <br />
+    <br />
+
+    @Html.LabelFor(x => x.PostnaStevilka)
+    <br />
+    @Html.EditorFor(x => x.PostnaStevilka, new { htmlAttributes = new { @autocomplete = "off" } })
+    @Html.ValidationMessageFor(x => x.PostnaStevilka, null, new { @class = "text-danger" })
+    <br />
+    <br />
+
+    @Html.LabelFor(x => x.Drzava)
+    <br />
+    @Html.EditorFor(x => x.Drzava, new { htmlAttributes = new { @autocomplete = "off" } })
+    @Html.ValidationMessageFor(x => x.Drzava, null, new { @class = "text-danger" })
+    <br />
+    <br />
+
+    @Html.LabelFor(x => x.Email)
+    <br />
+    @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @autocomplete = "off" } })
+    @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
+    <br />
+    <br />
+
+    @Html.LabelFor(x => x.Password)
+    <br />
+    @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @autocomplete = "off" } })
+    @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
+    <br />
+    <br />
+
+    @Html.LabelFor(x => x.ConfirmPassword)
+    <br />
+    @Html.EditorFor(x => x.ConfirmPassword, new { htmlAttributes = new { @autocomplete = "off" } })
+    @Html.ValidationMessageFor(x => x.ConfirmPassword, null, new { @class = "text-danger" })
+    <br />
+    <br />
+
+    <input type="submit" value="Shrani" />
+}

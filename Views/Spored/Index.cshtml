@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Spored>
+
+@{
+    ViewData["Title"] = "Spored";
+}
+
+<h1 class="display-4">@ViewData["Title"]</h1>
+
+<div>
+    @{
+        if (User.IsInRole("Zaposleni"))
+        {
+            <a class="btn btn-outline-info" asp-action="Dodaj">Dodaj</a>
+        }
+    }
+
+    <br /><br />
+
+    <div>
+        @Html.DisplayForModel()
+    </div>
+
+</div>

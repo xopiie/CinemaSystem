@@ -1,0 +1,4 @@
+﻿@model DateTime
+
+
+@Html.TextBox("", ((Model.Year == 0001) ? DateTime.Now.Date.ToShortDateString() : Model.ToShortDateString()), new { date_picker = true, @class = "form-control", autocomplete = "off" })

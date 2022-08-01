@@ -1,0 +1,9 @@
+﻿@model Uzunova_Nadica_1002387434_DSR_2021.Models.Rezervacija
+
+<fieldset>
+    @Html.HiddenFor(m => m.IdSpored)
+    @Html.HiddenFor(m => m.Email)
+
+    @Html.LabelFor(x => x.SteviloSedezev)<br />
+    @Html.DropDownListFor(x => x.SteviloSedezev, new SelectList(new List<int>() { 1, 2, 3, 4, 5, 6 }), "Izberi število sedežev", new { @class = "form-control" })<br />
+</fieldset>

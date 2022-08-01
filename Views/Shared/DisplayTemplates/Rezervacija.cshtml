@@ -1,0 +1,31 @@
+﻿@model Uzunova_Nadica_1002387434_DSR_2021.Models.Rezervacija
+
+<div class="card border-info mb-3" style="max-width: 20rem;">
+    
+    <div class="card-header">
+        <div style="float:right">
+            @{
+
+                <a class="btn btn-outline-danger" asp-action="OdstraniRezervacijo" asp-route-id="@Model.Id">✖</a>
+
+            }
+
+        </div>
+
+    </div>
+    <div class="card-body">
+        @Html.HiddenFor(m => m.IdSpored)
+        <p class="card-text">Film: <span class="text-info">@Html.ValueFor(x => x.Film)</span></p>
+        <p class="card-text">Dvorana: <span class="text-info">@Html.ValueFor(x => x.Dvorana)</span></p>
+        <p class="card-text">Datum: <span class="text-info">@Model.DatumCas.ToShortDateString()</span></p>
+        <p class="card-text">Ura: <span class="text-info">@Model.DatumCas.ToShortTimeString()</span></p>
+        <p class="card-text">Število rezerviranih sedežev: <span class="text-info">@Html.ValueFor(x => x.SteviloSedezev)</span></p>
+        @if (User.IsInRole("Zaposleni"))
+        {
+
+            <p class="card-text">E-naslov gledalca: <span class="text-info">@Html.ValueFor(x => x.Email)</span></p>
+        }
+
+    </div>
+
+</div> 

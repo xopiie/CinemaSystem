@@ -1,0 +1,37 @@
+﻿@model Uzunova_Nadica_1002387434_DSR_2021.Models.Dvorana
+
+<div class="card border-info mb-3" style="max-width: 20rem;">
+    <div class="card-header">
+        <p>@Model.Naziv</p>
+        <div style="float:right">
+            @{
+                if (User.IsInRole("Zaposleni"))
+                {
+                    <a class="btn btn-outline-warning" style="margin-right:5px" asp-action="Uredi" asp-route-id="@Model.Id">✏</a>
+                    <a class="btn btn-outline-danger" asp-action="Odstrani" asp-route-id="@Model.Id">✖</a>
+                }
+            }
+
+        </div>
+
+    </div>
+    <div class="card-body">
+        <p class="card-text">ID: <span class="text-info">@Html.ValueFor(x => x.Id)</span></p>
+
+        <p class="card-text">Naziv: <span class="text-info">@Html.ValueFor(x => x.Naziv)</span></p>
+        <p class="card-text">Število sedežev: <span class="text-info">@Html.ValueFor(x => x.Stevilo_sedezev)</span></p>
+
+        <p class="card-text">3D: <span class="text-info">@{
+
+            string a = "";
+
+            if (Model.ThreeD == true)
+                a = "Da";
+            else
+                a = "Ne";
+
+}@a</span></p>
+
+        <div><span class="img-fluid"><img src="@Model.Pot_slike" width="120" height="120"><img /></span></div>
+    </div>
+</div>

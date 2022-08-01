@@ -1,0 +1,12 @@
+﻿@model Uzunova_Nadica_1002387434_DSR_2021.Models.SporedDodaj
+
+<fieldset>
+    @Html.LabelFor(x => x.NaslovFilma)<br />
+    @Html.DropDownListFor(x => x.NaslovFilma, new SelectList(Model.Filmi), "Izberi film", new { @class = "form-control" })<br />
+    @Html.LabelFor(x => x.NazivDvorane)<br />
+    @Html.ValidationMessageFor(x => x.NazivDvorane)
+    @Html.DropDownListFor(x => x.NazivDvorane, new SelectList(Model.Dvorane), "Izberi dvorano", new { @class = "form-control" })<br />
+    @Html.ValidationMessageFor(x => x.DatumCas)
+    @Html.LabelFor(x => x.DatumCas)<br />
+    @Html.EditorFor(x => x.DatumCas)<br />
+</fieldset>

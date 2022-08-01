@@ -1,0 +1,32 @@
+﻿@model System.Int32
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(function () {
+        $(".INTslider").each(function () {
+            $(this).slider({
+                range: "min",
+                value: 0,
+                step: 1,
+                min: 0,
+                max: 200,
+                slide: function (event, ui) {
+                    $(this).parent().find(".vrednostINT").val(ui.value);
+                }
+            });
+        });
+
+    });
+</script>
+
+
+<div>
+    @Html.TextBox("", Model, new { @name = "ViewData.ModelMetadata.PropertyName", @class = "vrednostINT form-control" })
+
+    <div style="width:170px;margin-top:10px" class="INTslider"></div>
+
+</div>
+
+
+

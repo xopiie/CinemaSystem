@@ -1,0 +1,24 @@
+﻿@model Uzunova_Nadica_1002387434_DSR_2021.Models.Film
+
+<fieldset>
+    @Html.LabelFor(x => x.Naslov)<br />
+    @Html.EditorFor(x => x.Naslov)
+    @Html.ValidationMessageFor(x => x.Naslov, null, new { @class = "text-danger" })
+    <br /><br />
+    @Html.LabelFor(x => x.Trajanje)<br />
+    @Html.EditorFor(x => x.Trajanje)
+    @Html.ValidationMessageFor(x => x.Trajanje, null, new { @class = "text-danger" })
+    <br /><br />
+    @Html.LabelFor(x => x.DatumIzida)<br />
+    @Html.EditorFor(x => x.DatumIzida)
+    @Html.ValidationMessageFor(x => x.DatumIzida, null, new { @class = "text-danger" })
+    <br /><br />
+    @Html.LabelFor(x => x.Ocena)<br />
+    @Html.EditorFor(x => x.Ocena)
+    @Html.ValidationMessageFor(x => x.Ocena, null, new { @class = "text-danger" })
+    <br /><br />
+    @Html.LabelFor(x => x.Jezik)<br />
+    @Html.EditorFor(x => x.Jezik)
+    @Html.ValidationMessageFor(x => x.Jezik, null, new { @class = "text-danger" })
+    <br /><br />
+</fieldset>

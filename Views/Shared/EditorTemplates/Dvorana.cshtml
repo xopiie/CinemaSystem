@@ -1,0 +1,20 @@
+﻿@model Uzunova_Nadica_1002387434_DSR_2021.Models.Dvorana
+
+<fieldset>
+    @Html.LabelFor(x => x.Naziv)<br />
+    @Html.EditorFor(x => x.Naziv)
+    @Html.ValidationMessageFor(x => x.Naziv, null, new { @class = "text-danger" })
+    <br /><br />
+    @Html.LabelFor(x => x.Stevilo_sedezev)<br />
+    @Html.EditorFor(x => x.Stevilo_sedezev)
+    @Html.ValidationMessageFor(x => x.Stevilo_sedezev, null, new { @class = "text-danger" })
+    <br /><br />
+    @Html.LabelFor(x => x.ThreeD)<br />
+    @Html.EditorFor(x => x.ThreeD)
+    @Html.ValidationMessageFor(x => x.ThreeD, null, new { @class = "text-danger" })
+    <br /><br />
+    @Html.LabelFor(x => x.Pot_slike)<br />
+    @Html.EditorFor(x => x.Pot_slike)
+    @Html.ValidationMessageFor(x => x.Pot_slike, null, new { @class = "text-danger" })
+    <br /><br />
+</fieldset>
