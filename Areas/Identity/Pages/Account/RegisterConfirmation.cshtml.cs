@@ -28,6 +28,20 @@ namespace Uzunova_Nadica_1002387434_DSR_2021.Areas.Identity.Pages.Account
 
         public string EmailConfirmationUrl { get; set; }
 
+        /// <summary>
+        /// Handles the GET request for the page, retrieving user information based on the provided email.
+        /// </summary>
+        /// <param name="email">The email address of the user to be loaded.</param>
+        /// <param name="returnUrl">An optional return URL to redirect to after processing.</param>
+        /// <returns>An <see cref="IActionResult"/> that represents the result of the asynchronous operation.</returns>
+        /// <remarks>
+        /// This method first checks if the provided email is null; if it is, it redirects to the Index page.
+        /// It then attempts to find the user associated with the given email using the user manager.
+        /// If the user is not found, it returns a NotFound result with an appropriate message.
+        /// If the user is found, it sets the Email property and prepares a confirmation link for the account.
+        /// The confirmation link is generated using a token that is encoded in a URL-safe format.
+        /// Finally, it returns the current page result.
+        /// </remarks>
         public async Task<IActionResult> OnGetAsync(string email, string returnUrl = null)
         {
             if (email == null)

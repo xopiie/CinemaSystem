@@ -84,11 +84,34 @@ namespace Uzunova_Nadica_1002387434_DSR_2021.Areas.Identity.Pages.Account
             public DateTime DatumRojstva { get; set; }
         }
 
+        /// <summary>
+        /// Handles the GET request asynchronously and redirects to the Login page.
+        /// </summary>
+        /// <returns>An IActionResult that represents the result of the asynchronous operation, which in this case is a redirection to the Login page.</returns>
+        /// <remarks>
+        /// This method is typically used in a Razor Pages application to manage navigation. 
+        /// When a GET request is made to the page, this method is invoked, and it performs a redirection 
+        /// to the Login page. This is useful for scenarios where access to certain pages 
+        /// should be restricted to authenticated users, thereby directing unauthenticated users 
+        /// to the login interface.
+        /// </remarks>
         public IActionResult OnGetAsync()
         {
             return RedirectToPage("./Login");
         }
 
+        /// <summary>
+        /// Initiates the external login process by redirecting the user to the specified authentication provider.
+        /// </summary>
+        /// <param name="provider">The name of the external authentication provider to use.</param>
+        /// <param name="returnUrl">The URL to redirect to after the external login is complete. This parameter is optional.</param>
+        /// <returns>An <see cref="IActionResult"/> that represents the result of the login challenge, which will redirect the user to the external provider.</returns>
+        /// <remarks>
+        /// This method constructs a redirect URL for the external login callback and configures the authentication properties needed for the external login process.
+        /// It uses the <paramref name="provider"/> to identify which external service to authenticate against, such as Google, Facebook, etc.
+        /// The <paramref name="returnUrl"/> allows the application to return to a specific page after the authentication process is completed.
+        /// If no return URL is provided, the default behavior will be to return to a predefined location.
+        /// </remarks>
         public IActionResult OnPost(string provider, string returnUrl = null)
         {
             // Request a redirect to the external login provider.
@@ -97,6 +120,19 @@ namespace Uzunova_Nadica_1002387434_DSR_2021.Areas.Identity.Pages.Account
             return new ChallengeResult(provider, properties);
         }
 
+        /// <summary>
+        /// Handles the callback from an external login provider asynchronously.
+        /// </summary>
+        /// <param name="returnUrl">The URL to redirect to after the login process is complete. Defaults to the root URL if not provided.</param>
+        /// <param name="remoteError">An error message from the external provider, if any.</param>
+        /// <returns>An <see cref="IActionResult"/> that represents the result of the callback operation.</returns>
+        /// <remarks>
+        /// This method processes the callback from an external authentication provider. It first checks for any remote errors and redirects to the login page with an error message if one exists.
+        /// If there are no errors, it retrieves the external login information and attempts to sign in the user using that information.
+        /// If the sign-in is successful, the user is redirected to the specified return URL. If the user is locked out, they are redirected to a lockout page.
+        /// If the user does not have an account, they are prompted to create one, and their email address is pre-filled if available in the external login information.
+        /// This method is designed to work with ASP.NET Core Identity and external authentication providers.
+        /// </remarks>
         public async Task<IActionResult> OnGetCallbackAsync(string returnUrl = null, string remoteError = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
@@ -139,6 +175,19 @@ namespace Uzunova_Nadica_1002387434_DSR_2021.Areas.Identity.Pages.Account
             }
         }
 
+        /// <summary>
+        /// Handles the confirmation of an external login and creates a new user account.
+        /// </summary>
+        /// <param name="returnUrl">The URL to redirect to after confirmation. If null, defaults to the home page.</param>
+        /// <returns>An <see cref="IActionResult"/> that represents the result of the confirmation process.</returns>
+        /// <remarks>
+        /// This method retrieves the external login information and checks if it is valid. If valid, it creates a new user account 
+        /// with the provided details and assigns the user to a default role. It also generates an email confirmation token and 
+        /// sends a confirmation email to the user. If account confirmation is required, it redirects to a confirmation page. 
+        /// If there are any errors during the user creation or login process, those errors are added to the model state for display.
+        /// The method also handles the case where external login information cannot be loaded, redirecting to the login page in such cases.
+        /// </remarks>
+        /// <exception cref="InvalidOperationException">Thrown when external login information cannot be loaded.</exception>
         public async Task<IActionResult> OnPostConfirmationAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");

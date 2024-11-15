@@ -13,6 +13,17 @@ namespace Uzunova_Nadica_1002387434_DSR_2021.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup
     {
+        /// <summary>
+        /// Configures the web host builder to set up the identity services.
+        /// </summary>
+        /// <param name="builder">The web host builder used to configure services.</param>
+        /// <remarks>
+        /// This method sets up the dependency injection for the identity services in the application.
+        /// It adds the Entity Framework Core DbContext for managing user identities using SQL Server.
+        /// The connection string for the database is retrieved from the application configuration.
+        /// Additionally, it configures the default identity options, allowing users to sign in without requiring a confirmed account.
+        /// The method also adds role management capabilities and integrates the identity services with the Entity Framework stores.
+        /// </remarks>
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) => {
