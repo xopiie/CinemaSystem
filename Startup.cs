@@ -20,7 +20,18 @@ namespace Uzunova_Nadica_1002387434_DSR_2021
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// Configures the services for the application.
+        /// </summary>
+        /// <param name="services">The service collection to which services are added.</param>
+        /// <remarks>
+        /// This method is called by the runtime to add services to the dependency injection container.
+        /// It sets up the necessary services for the application, including MVC controllers with views,
+        /// Razor Pages, and authentication services. Specifically, it configures Facebook authentication
+        /// by providing the App ID and App Secret, as well as specifying a path to redirect users if 
+        /// access is denied. This setup is essential for enabling user authentication and authorization 
+        /// in the application.
+        /// </remarks>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
@@ -33,7 +44,18 @@ namespace Uzunova_Nadica_1002387434_DSR_2021
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// Configures the HTTP request pipeline for the application.
+        /// </summary>
+        /// <param name="app">The application builder used to configure the HTTP request pipeline.</param>
+        /// <param name="env">The web hosting environment information.</param>
+        /// <remarks>
+        /// This method is called by the runtime to set up the middleware components that handle requests and responses.
+        /// It checks if the application is running in a development environment and configures the developer exception page accordingly.
+        /// In production, it sets up a generic exception handler and enables HTTP Strict Transport Security (HSTS).
+        /// The method also configures HTTPS redirection, static file serving, routing, authentication, and authorization.
+        /// Finally, it defines the endpoint routing for MVC controllers and Razor pages, setting a default route pattern.
+        /// </remarks>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
